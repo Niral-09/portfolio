@@ -1,11 +1,13 @@
 from django.contrib import admin
-from .models import Home,About,Profile,Category,Skills,Portfolio
+from .models import Home, About, Profile, Category, Skills, Portfolio
 
 admin.site.register(Home)
+
 
 class ProfileInline(admin.TabularInline):
     model = Profile
     extra = 1
+
 
 @admin.register(About)
 class AboutAdmin(admin.ModelAdmin):
@@ -13,9 +15,11 @@ class AboutAdmin(admin.ModelAdmin):
         ProfileInline,
     ]
 
+
 class SkillsInline(admin.TabularInline):
     model = Skills
     extra = 2
+
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -23,8 +27,5 @@ class CategoryAdmin(admin.ModelAdmin):
         SkillsInline,
     ]
 
+
 admin.site.register(Portfolio)
-
-
-
-
